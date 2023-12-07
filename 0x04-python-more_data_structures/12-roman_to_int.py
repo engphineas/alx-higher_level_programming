@@ -6,10 +6,10 @@ def roman_to_int(roman_string: str):
     nums = [d_value[x] for x in roman_string] + [0]
     figure = 0
 
-    for i in range(len(nums) - 1):
-        if numbs[i] >= nums[i+1]:
-            figure += nums[i]
+    for entry in range(len(nums) - 1):
+        if nums[entry] >= nums[entry+1]:
+            figure += nums[entry]
         else:
-            figure -= nums[i]
+            figure -= nums[entry]
 
     return figure

@@ -10,4 +10,4 @@ def weight_average(my_list=[]):
         tuple_prd += tuple_item[0] * tuple_item[1]
         weight_sum += tuple_item[1]
 
-    return (tuple_item / weight_sum)
+    return (tuple_prd / weight_sum)
