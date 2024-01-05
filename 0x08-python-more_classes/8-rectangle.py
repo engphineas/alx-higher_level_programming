@@ -61,22 +61,22 @@ class Rectangle:
         return ((self.__width * 2) + (self.__height * 2))
 
     @staticmethod
-    def bigger_or_equal(rect_array1, rect_array2):
+    def bigger_or_equal(rect_1, rect_2):
         """Returns the Rectangle with the greater area.
 
         Args:
-            rect_array1 (Rectangle): The first Rectangle.
-            rect_array2 (Rectangle): The second Rectangle.
+            rect_1 (Rectangle): The first Rectangle.
+            rect_2 (Rectangle): The second Rectangle.
         Raises:
-            TypeError: If either of rect_array1 or rect_array2 is not a Rectangle.
+            TypeError: If either of rect_1 or rect_2 is not a Rectangle.
         """
-        if not isinstance(rect_array1, Rectangle):
-            raise TypeError("rect_array1 must be an instance of Rectangle")
-        if not isinstance(rect_array2, Rectangle):
-            raise TypeError("rect_array2 must be an instance of Rectangle")
-        if rect_array1.area() >= rect_array2.area():
-            return (rect_array1)
-        return (rect_array2)
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return (rect_1)
+        return (rect_2)
 
     def __str__(self):
         """Returns the printable representation of the Rectangle.
@@ -86,18 +86,18 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ("")
 
-        rect_array = []
+        rect = []
         for j in range(self.__height):
-            [rect_array.append(str(self.print_symbol)) for k in range(self.__width)]
+            [rect.append(str(self.print_symbol)) for k in range(self.__width)]
             if j != self.__height - 1:
-                rect_array.append("\n")
-        return ("".join(rect_array))
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
         """Returns the string representation of the Rectangle."""
-        rect_array = "Rectangle(" + str(self.__width)
-        rect_array += ", " + str(self.__height) + ")"
-        return (rect_array)
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
     def __del__(self):
         """Prints a message for every deletion of a Rectangle."""
