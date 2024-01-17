@@ -47,7 +47,7 @@ class Square(Rectangle):
         if args:
             for pos, attr_val in enumerate(args):
                 if pos == 0:
-                    if arg is None:
+                    if args is None:
                         self.__init__(self.size, self.x, self.y)
                     else:
                         self.id = attr_val
@@ -64,10 +64,10 @@ class Square(Rectangle):
         elif len(kwargs)> 0:
             for key, attr_val in kwargs.items():
                 if key == "id":
-                    if val is None:
+                    if attr_val is None:
                         self.__init__(self.size, self.x, self.y)
                     else:
-                        self.id = val
+                        self.id = attr_val
                 elif key == "width":
                     self.width = attr_val
                 elif key == "height":
