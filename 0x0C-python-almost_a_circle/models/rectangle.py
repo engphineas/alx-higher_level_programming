@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """defines Rectangle class."""
 from models.base import Base
 
@@ -75,8 +76,8 @@ class Rectangle(Base):
     def y(self, value):
         if type(value) != int:
             raise TypeError("y must be an integer")
-        if value <= 0:
-            raise TypeError("y must be > 0")
+        if value < 0:
+            raise ValueError("y must be > 0")
         self.__y = value
 
     def area(self):
@@ -85,11 +86,14 @@ class Rectangle(Base):
 
     def display(self):
         """Prints the Rectangle using #."""
-        for h in range(self.y):
-            print()
-
-        for h in range(self.height):
-            print(" " * self.x + "#" * self.width)
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+        [print("") for h in range(self.y)]
+        for p in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for z in range(self.width)]
+            print("")
 
     def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
@@ -98,7 +102,7 @@ class Rectangle(Base):
                 self.width, self.height)
 
     def update(self, *args, **kwargs):
-            """Update the Rectangle.Assign arguments to attributes in position.
+        """Update the Rectangle.Assign arguments to attributes in position.
 
         Args:
             *args (ints): New attribute values.
